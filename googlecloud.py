@@ -49,12 +49,10 @@ for audio_file in (audios):
         audio = speech.RecognitionAudio(content = audio_content),
         config = speech.RecognitionConfig(
             encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16,
-            sample_rate_hertz = 16000,                      # 16khz is optional
+            sample_rate_hertz = 32000,                      # 16khz is optional, but wav required 32khz
             language_code = 'zh-CN',                        # zh-CN is Chinese, en-US is English
             enable_automatic_punctuation = True,            # enable auto punctuation
-            enable_separate_recognition_per_channel	= True, # enable multi-channel
-            audio_channel_count = 6,                        # number of channels
-            model = 'video'                                 # video model is better for long audio
+            enable_word_time_offsets = True                 # enable word time offsets
         )
     )
 
