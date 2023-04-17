@@ -51,9 +51,9 @@ for audio_file in (audios):
             encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16,
             sample_rate_hertz = 16000,                      # 16khz is optional
             language_code = 'zh-CN',                        # zh-CN is Chinese, en-US is English
-            enableAutomaticPunctuation = True,              # enable auto punctuation
-            enableSeparateRecognitionPerChannel = True,     # enable multi-channel
-            audioChannelCount = 6,                          # number of channels
+            enable_automatic_punctuation = True,            # enable auto punctuation
+            enable_separate_recognition_per_channel	= True, # enable multi-channel
+            audio_channel_count = 6,                        # number of channels
             model = 'video'                                 # video model is better for long audio
         )
     )
