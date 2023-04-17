@@ -2,3 +2,5 @@ ffmpeg.exe
 ffplay.exe
 ffprobe.exe
 audio_chunk/*.wav
+create_character.m4a
+create_character.wav
