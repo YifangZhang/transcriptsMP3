@@ -20,7 +20,7 @@ else:
     for filename in os.listdir(audio_folder_path):
         os.remove(os.path.join(audio_folder_path, filename))
 
-# chunk the audio in m4a into 50 secs chunks wav files
+# chunk the audio in m4a into 2 and half mins chunks wav files
 original_audio = '../create_character.m4a'
 sound = pydub.AudioSegment.from_file(original_audio, 'm4a')
 for i, chunk in enumerate(sound[::50000]):
@@ -49,8 +49,12 @@ for audio_file in (audios):
         audio = speech.RecognitionAudio(content = audio_content),
         config = speech.RecognitionConfig(
             encoding = speech.RecognitionConfig.AudioEncoding.LINEAR16,
-            sample_rate_hertz = 32000,
-            language_code = 'zh-CN'
+            sample_rate_hertz = 16000,                      # 16khz is optional
+            language_code = 'zh-CN',                        # zh-CN is Chinese, en-US is English
+            enableAutomaticPunctuation = True,              # enable auto punctuation
+            enableSeparateRecognitionPerChannel = True,     # enable multi-channel
+            audioChannelCount = 6,                          # number of channels
+            model = 'video'                                 # video model is better for long audio
         )
     )
 
